@@ -7,9 +7,6 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"strconv"
-	"io/ioutil"
-	"net/http"
-	"net/http/httptest"
 	"testing"
 
 	"github.com/gin-gonic/gin"
