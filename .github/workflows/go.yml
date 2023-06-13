@@ -1,7 +1,6 @@
 # This workflow will build a golang project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
-
 name: Go
 
 on:
@@ -23,7 +22,8 @@ jobs:
     strategy:
       matrix:
         os: ['ubuntu-latest']
-        go_version: ['1.18', '1.17', '>=1.18']
+        go_version: ['1.19']
+        #go_version: ['1.18', '1.17', '>=1.18']
     steps:
     - uses: actions/checkout@v3
 
