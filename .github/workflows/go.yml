@@ -6,14 +6,14 @@ name: Go
 
 on:
   push:
-    branches: [ "aula_5" ]
+    branches: [ "*" ]
   pull_request:
-    branches: [ "aula_5" ]
+    branches: [ "*" ]
 
 jobs:
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }} 
     env:
       HOST: localhost
       PORT: 5432
@@ -22,6 +22,7 @@ jobs:
       DBNAME: root    
     strategy:
       matrix:
+        os: ['ubuntu-latest']
         go_version: ['1.18', '1.17', '>=1.18']
     steps:
     - uses: actions/checkout@v3
@@ -42,7 +43,10 @@ jobs:
 
   build:
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }} 
+    strategy:
+      matrix:
+        os: ['ubuntu-latest']    
     steps:
     - uses: actions/checkout@v3    
     - name: Build
