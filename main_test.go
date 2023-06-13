@@ -67,3 +67,4 @@ func TestBucaAlunoPorCPFHandler(t *testing.T) {
 	r.ServeHTTP(resposta, req)
 	assert.Equal(t, http.StatusOK, resposta.Code)
 }
+
